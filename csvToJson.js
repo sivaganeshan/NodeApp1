@@ -1,27 +1,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const csvToJsonFromFile = (filePath='', cb)=>
-{
-    try{
-        let allLineContent = '';
-        fs.readFile(path.join(__dirname,filePath),{encoding :'utf-8'},(error, data)=>
-        {       
-            if(error)
-             {
-                console.log(error);
-             }
-            allLineContent = data;
-
-            csvToJson(allLineContent,cb);
-        });
-        
-    }
-    catch(error)
-    {
-        cb(error);
-    }
-}
 
 const csvToJson = (allLineContent='', cb) => {
 
@@ -77,4 +56,3 @@ catch(error)
 }
 
 exports.csvToJson = csvToJson;
-exports.csvToJsonFromFile = csvToJsonFromFile;
